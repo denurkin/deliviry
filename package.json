@@ -19,7 +19,12 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "6.1.1",
+    "@graphql-codegen/client-preset": "5.2.2",
+    "@graphql-codegen/introspection": "5.0.0",
+    "@graphql-codegen/schema-ast": "^5.0.0",
     "@graphql-codegen/typescript": "^5.0.7",
+    "@graphql-codegen/typescript-operations": "^5.0.0",
+    "@graphql-codegen/typescript-react-apollo": "^4.0.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20.19.33",
     "@types/react": "^19",
@@ -28,8 +33,6 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "@graphql-codegen/introspection": "5.0.0",
-    "@graphql-codegen/client-preset": "5.2.2"
+    "typescript": "^5"
   }
 }

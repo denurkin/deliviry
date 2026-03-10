@@ -3,15 +3,27 @@ import type { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
   overwrite: true,
+  ignoreNoDocuments: true,
   schema: "http://localhost:4200/graphql",
-  documents: "src/**/*.tsx",
+  documents: "src/shared/graphql/**/*.graphql",
   generates: {
-    "src/gql/": {
-      preset: "client",
-      plugins: []
+    "src/__generated__/schema.graphql": {
+      plugins: ["schema-ast"],
     },
-    "./graphql.schema.json": {
-      plugins: ["introspection"]
+    "src/__generated__/output.ts": {
+      plugins: [
+        "typescript",
+        "typescript-operations",
+        "typescript-react-apollo",
+      ],
+      config: {
+        enumsAsConst: true,
+        apolloReactHooksImportFrom: "@apollo/client/react",
+        apolloReactCommonImportFrom: "@apollo/client/react",
+        scalars: {
+          DateTime: "string",
+        },
+      }
     }
   }
 };
